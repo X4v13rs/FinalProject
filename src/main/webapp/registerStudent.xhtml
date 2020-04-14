@@ -11,9 +11,7 @@
 
     <h:form>
         <p:panel id="panel" header="New Student">
-
             <p:messages id="msgs" />
-
             <h:panelGrid columns="4" cellpadding="5">
                 <!-- Name of student -->
                 <p:outputLabel for="name" value="Name:" />
@@ -47,18 +45,16 @@
                 </p:inputText>
                 <p:message for="program" id="msgprogram" display="icon" />
 
-                <!-- Program of student -->
+                <!-- D.O.B. of student -->
                 <p:outputLabel for="dob" value="Date Of Birth:" />
                 <p:inputText id="dob" value="#{editStudentsView.dob}" required="true" label="country">
                     <f:validateLength minimum="4" />
                     <p:ajax update="dob" event="keyup" />
                 </p:inputText>
                 <p:message for="dob" id="msgdob" display="icon" />
-
-
             </h:panelGrid>
 
-            <p:commandButton value="Add Student" update="panel" action="#{editStudentsView.save}" icon="pi pi-check" />
+            <p:commandButton value="Save" update="panel" action="#{editStudentsView.save}" icon="pi pi-check" />
         </p:panel>
     </h:form>
 </h:body>

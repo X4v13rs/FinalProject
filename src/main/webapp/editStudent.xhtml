@@ -24,11 +24,11 @@
             </f:facet>
             <p:repeat value="#{allStudentsView.students}" var="student">
                 <p:row>
-                    <p:column style="font-weight: bold;">#{student.name}</p:column>
-                    <p:column style="font-weight: bold;">#{student.email}</p:column>
-                    <p:column style="font-weight: bold;">#{student.contactNumber}</p:column>
-                    <p:column style="font-weight: bold;">#{student.program}</p:column>
-                    <p:column style="font-weight: bold;">#{student.doB}</p:column>
+                    <p:column>#{student.name}</p:column>
+                    <p:column>#{student.email}</p:column>
+                    <p:column>#{student.contactNumber}</p:column>
+                    <p:column>#{student.program}</p:column>
+                    <p:column>#{student.doB}</p:column>
                     <p:column><p:commandButton value="Update student" action="#{allStudentsView.redirectToEditStudent}"
                                      style="margin-right:20px;">
                         <f:actionListener binding="#{editStudentsView.populateView(student.id)}" />
