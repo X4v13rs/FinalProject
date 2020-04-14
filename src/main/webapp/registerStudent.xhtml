@@ -18,6 +18,7 @@
                 <!-- Name of student -->
                 <p:outputLabel for="name" value="Name:" />
                 <p:inputText id="name" value="#{editStudentsView.name}" required="true" label="name">
+                    <f:validateLength minimum="4" />
                     <p:ajax update="name" event="keyup" />
                 </p:inputText>
                 <p:message for="name" id="msgname" display="icon" />
@@ -56,7 +57,7 @@
 
             </h:panelGrid>
 
-            <p:commandButton value="Save" update="panel" action="#{editStudentsView.save}" icon="pi pi-check" />
+            <p:commandButton value="Add Student" update="panel" action="#{editStudentsView.save}" icon="pi pi-check" />
         </p:panel>
     </h:form>
 </h:body>

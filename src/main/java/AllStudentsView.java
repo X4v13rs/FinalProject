@@ -22,22 +22,22 @@ public class AllStudentsView {
         students.addAll(studentService.getAll());
     }
 
-    public List<Student> getPlayers() {
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setPlayers(List<Student> players) {
-        this.students = players;
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 
     public String deleteStudent(long id) {
         studentService.delete(studentService.findById(id));
-        return "/students.xhtml?faces-redirect=true";
+        return "/editStudent.xhtml?faces-redirect=true";
     }
 
 
-    public String redirectToEditPlayer() {
-        return "/editStudent.xhtml?faces-redirect=true";
+    public String redirectToEditStudent() {
+        return "/registerStudent.xhtml?faces-redirect=true";
     }
 
 }

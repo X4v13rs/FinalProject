@@ -92,7 +92,7 @@ public class EditStudentsView implements Serializable {
                 studentService.create (createdStudent);
         }
         nullifyFields();
-        return "/students.xhtml?faces-redirect=true";
+        return "/editStudent.xhtml?faces-redirect=true";
         }
         private void nullifyFields (){
         studentToUpdate = null;

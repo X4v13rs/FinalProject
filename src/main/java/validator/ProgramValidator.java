@@ -10,7 +10,7 @@ import java.util.Arrays;
 @FacesValidator
 public class ProgramValidator implements Validator {
     private String[] programNames = {
-            "Computer Programmer", "Architechture", "Biotechnology", "Computer Emgineering", "Health Science"};
+            "Computer Programmer", "Architechture", "Biotechnology", "Computer Emgineering", "Health Science", "Test"};
 
     @Override
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object program) {

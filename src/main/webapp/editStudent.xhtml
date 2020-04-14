@@ -1,38 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
-
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 
 </h:head>
 
-<h:body>
-
-    <h:form>
-        <p:panel id="panel" header="New User">
-
-            <p:messages id="msgs" />
-
-            <h:panelGrid columns="3" cellpadding="5">
-
-                <p:outputLabel for="name" value="Name:" />
-                <p:inputText id="name" value="#{editStudentsView.name}" required="true" label="name">
-                    <p:ajax update="name" event="keyup" />
-                </p:inputText>
-                <p:message for="name" id="msgname" display="icon" />
-
-                <p:outputLabel for="email" value="Email:" />
-                <p:inputText id="email" value="#{editStudentsView.email}" label="email" required="true">
-                    <f:validator validatorId="emailValidator" />
-                    <p:ajax update="email" event="keyup" />
-                </p:inputText>
-                <p:message for="email" id="msgemail" display="icon" />
-
-            </h:panelGrid>
-
-            <p:commandButton value="Save" update="panel" action="#{editStudentsView.save}" icon="pi pi-check" />
-        </p:panel>
+    <h:form id="form">
+        <p:panelGrid style="margin-top: 20px">
+            <f:facet name="header">
+                <p:row>
+                    <p:column colspan="7">Students</p:column>
+                </p:row>
+                    <p:row>
+                        <p:column>Name</p:column>
+                        <p:column>Email</p:column>
+                        <p:column>Contact Number</p:column>
+                        <p:column>Program</p:column>
+                        <p:column>D.O.B.</p:column>
+                        <p:column>Update</p:column>
+                        <p:column>Delete</p:column>
+                    </p:row>
+            </f:facet>
+            <p:repeat value="#{allStudentsView.students}" var="student">
+                <p:row>
+                    <p:column style="font-weight: bold;">#{student.name}</p:column>
+                    <p:column style="font-weight: bold;">#{student.email}</p:column>
+                    <p:column style="font-weight: bold;">#{student.contactNumber}</p:column>
+                    <p:column style="font-weight: bold;">#{student.program}</p:column>
+                    <p:column style="font-weight: bold;">#{student.doB}</p:column>
+                    <p:column><p:commandButton value="Update student" action="#{allStudentsView.redirectToEditStudent}"
+                                     style="margin-right:20px;">
+                        <f:actionListener binding="#{editStudentsView.populateView(student.id)}" />
+                    </p:commandButton></p:column>
+                    <p:column><p:commandButton value="Delete student" action="#{allStudentsView.deleteStudent(student.id)}"
+                                               style="margin-right:20px;"/></p:column>
+                </p:row>
+            </p:repeat>
+        </p:panelGrid>
+        <hr/>
+        <p:commandButton value="Add Student" action="#{allStudentsView.redirectToEditStudent}" style="margin-right:20px;"/>
     </h:form>
-</h:body>
 </html>
