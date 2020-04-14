@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <p:panel id="panel" header="New Student">
+
+            <p:messages id="msgs" />
+
+            <h:panelGrid columns="4" cellpadding="5">
+                <!-- Name of student -->
+                <p:outputLabel for="name" value="Name:" />
+                <p:inputText id="name" value="#{editStudentsView.name}" required="true" label="name">
+                    <p:ajax update="name" event="keyup" />
+                </p:inputText>
+                <p:message for="name" id="msgname" display="icon" />
+
+                <!-- email of student -->
+                <p:outputLabel for="email" value="Email:" />
+                <p:inputText id="email" value="#{editStudentsView.email}" label="email" required="true">
+                    <f:validator validatorId="emailValidator" />
+                    <p:ajax update="email" event="keyup" />
+                </p:inputText>
+                <p:message for="email" id="msgemail" display="icon" />
+
+                <!-- Contact Number of student -->
+                <p:outputLabel for="contactNumber" value="Contact Number:" />
+                <p:inputText id="contactNumber" value="#{editStudentsView.contactNumber}" label="contactNumber" required="true">
+                    <p:ajax update="contactNumber" event="keyup" />
+                </p:inputText>
+                <p:message for="contactNumber" id="msgcontactnumber" display="icon" />
+
+                <!-- Program of student -->
+                <p:outputLabel for="program" value="Program:" />
+                <p:inputText id="program" value="#{editStudentsView.program}" required="true" label="team">
+                    <f:validator validatorId="programValidator" />
+                    <p:ajax update="program" event="keyup" />
+                </p:inputText>
+                <p:message for="program" id="msgprogram" display="icon" />
+
+                <!-- Program of student -->
+                <p:outputLabel for="dob" value="Date Of Birth:" />
+                <p:inputText id="dob" value="#{editStudentsView.dob}" required="true" label="country">
+                    <f:validateLength minimum="4" />
+                    <p:ajax update="dob" event="keyup" />
+                </p:inputText>
+                <p:message for="dob" id="msgdob" display="icon" />
+
+
+            </h:panelGrid>
+
+            <p:commandButton value="Save" update="panel" action="#{editStudentsView.save}" icon="pi pi-check" />
+        </p:panel>
+    </h:form>
+</h:body>
+</html>
