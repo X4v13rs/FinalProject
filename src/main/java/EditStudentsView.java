@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class EditStudentsView implements Serializable {
     private String name;
     private String email;
-    private int contactNumber;
+    private String contactNumber;
     private String program;
     private String dob;
 
@@ -44,11 +44,11 @@ public class EditStudentsView implements Serializable {
         this.email = email;
     }
 
-    public int getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String  contactNumber) {
         this.contactNumber = contactNumber;
     }
 
@@ -98,7 +98,7 @@ public class EditStudentsView implements Serializable {
         studentToUpdate = null;
         this.setName(null);
         this.setEmail(null);
-        this.setContactNumber(0);
+        this.setContactNumber(null);
         this.setProgram(null);
         this.setDob(null);
 

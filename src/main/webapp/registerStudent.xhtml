@@ -34,6 +34,7 @@
                 <!-- Contact Number of student -->
                 <p:outputLabel for="contactNumber" value="Contact Number:" />
                 <p:inputText id="contactNumber" value="#{editStudentsView.contactNumber}" label="contactNumber" required="true">
+                    <f:validator validatorId="phoneValidator" />
                     <p:ajax update="contactNumber" event="keyup" />
                 </p:inputText>
                 <p:message for="contactNumber" id="msgcontactnumber" display="icon" />

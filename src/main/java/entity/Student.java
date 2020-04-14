@@ -17,11 +17,11 @@ public class Student {
     private long id;
     private String name;
     private String email;
-    private int contactNumber;
+    private String contactNumber;
     private String program;
     private String DoB;
 
-    public Student(String name, String email, int contactNumber, String program, String DoB ) {
+    public Student(String name, String email, String contactNumber, String program, String DoB ) {
        this.name = name;
        this.email = email;
        this.program = program;
@@ -46,11 +46,11 @@ public class Student {
         this.email = email;
     }
 
-    public int getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
